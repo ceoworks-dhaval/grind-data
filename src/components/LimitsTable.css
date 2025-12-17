@@ -1,0 +1,189 @@
+.limits-table-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.limits-table-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background: var(--bg-muted);
+  border-radius: 8px;
+  color: var(--text-muted);
+}
+
+.limit-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toggle-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-right: 0.5rem;
+}
+
+.limit-toggle {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--bg-input);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.limit-toggle:hover {
+  border-color: var(--accent-color);
+  color: var(--text-primary);
+}
+
+.limit-toggle.active {
+  background: var(--accent-bg);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.limits-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.limits-table th,
+.limits-table td {
+  padding: 0.75rem;
+  text-align: right;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.limits-table th {
+  background: var(--bg-muted);
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.limits-table .sticky-col {
+  position: sticky;
+  left: 0;
+  background: var(--bg-elevated);
+  z-index: 1;
+  text-align: left;
+}
+
+.limits-table th.sticky-col {
+  background: var(--bg-muted);
+  z-index: 2;
+}
+
+.limits-table .sticky-col:nth-child(2) {
+  left: 100px;
+}
+
+.limit-header {
+  text-align: center !important;
+  border-left: 2px solid var(--border-color);
+}
+
+.sub-header th {
+  font-size: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--text-muted);
+}
+
+.sub-header .lower {
+  color: var(--put-color);
+  border-left: 2px solid var(--border-color);
+}
+
+.sub-header .upper {
+  color: var(--call-color);
+}
+
+.limits-table tbody tr:hover {
+  background: var(--bg-hover);
+}
+
+.limits-table tbody tr:hover .sticky-col {
+  background: var(--bg-hover);
+}
+
+.date-cell {
+  font-weight: 500;
+  min-width: 100px;
+}
+
+.dte-cell {
+  color: var(--text-muted);
+  min-width: 50px;
+}
+
+.price-cell {
+  min-width: 90px;
+}
+
+.price-cell.lower {
+  border-left: 2px solid var(--border-color);
+}
+
+.price-cell .price {
+  display: block;
+  font-weight: 600;
+  font-family: "SF Mono", "Monaco", "Consolas", monospace;
+}
+
+.price-cell .percent {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.price-cell.lower .price {
+  color: var(--put-color);
+}
+
+.price-cell.upper .price {
+  color: var(--call-color);
+}
+
+.table-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  padding-top: 0.5rem;
+}
+
+.prior-close strong {
+  color: var(--text-primary);
+}
+
+.legend {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.75rem;
+}
+
+.lower-legend {
+  color: var(--put-color);
+}
+
+.upper-legend {
+  color: var(--call-color);
+}

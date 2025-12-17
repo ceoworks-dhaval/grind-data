@@ -1,0 +1,119 @@
+:root {
+  /* Colors - Light mode */
+  --bg-primary: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-muted: #f5f5f7;
+  --bg-input: #ffffff;
+  --bg-hover: #f0f0f2;
+
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-muted: #86868b;
+
+  --border-color: #d2d2d7;
+
+  --accent-color: #0071e3;
+  --accent-bg: rgba(0, 113, 227, 0.1);
+  --accent-shadow: rgba(0, 113, 227, 0.2);
+  --accent-light: rgba(0, 113, 227, 0.5);
+  --accent-bg-light: rgba(0, 113, 227, 0.05);
+
+  --put-color: #bf4800;
+  --call-color: #007a3d;
+  --danger-color: #ff3b30;
+
+  /* Typography */
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+
+  color: var(--text-primary);
+  background-color: var(--bg-muted);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #000000;
+    --bg-elevated: #1c1c1e;
+    --bg-muted: #2c2c2e;
+    --bg-input: #1c1c1e;
+    --bg-hover: #3a3a3c;
+
+    --text-primary: #f5f5f7;
+    --text-secondary: #a1a1a6;
+    --text-muted: #6e6e73;
+
+    --border-color: #3a3a3c;
+
+    --accent-color: #0a84ff;
+    --accent-bg: rgba(10, 132, 255, 0.15);
+    --accent-shadow: rgba(10, 132, 255, 0.3);
+    --accent-light: rgba(10, 132, 255, 0.5);
+    --accent-bg-light: rgba(10, 132, 255, 0.08);
+
+    --put-color: #ff9f0a;
+    --call-color: #30d158;
+    --danger-color: #ff453a;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg-muted);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  font-weight: 500;
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
