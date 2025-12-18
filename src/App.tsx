@@ -2,6 +2,7 @@ import { useState } from "react";
 import { SymbolSelector } from "./components/SymbolSelector";
 import { DateRangePicker } from "./components/DateRangePicker";
 import { LimitsTable } from "./components/LimitsTable";
+import { PercentileLimitsTable } from "./components/PercentileLimitsTable";
 import { FileUpload } from "./components/FileUpload";
 import { parseExcelFile } from "./utils/excelParser";
 import type { ScreenerData, SymbolInfo, LimitType } from "./types";
@@ -21,6 +22,7 @@ function App() {
     "neverLost",
     "onePercent",
   ]);
+  const [viewMode, setViewMode] = useState<"historical" | "probability">("historical");
 
   const handleFileLoaded = async (file: File) => {
     setIsLoading(true);
@@ -128,13 +130,38 @@ function App() {
               <p>Select a symbol to view strike limits</p>
             </div>
           ) : (
-            <LimitsTable
-              expirations={symbolData.expirations}
-              selectedDates={selectedDates}
-              priorClose={symbolData.metadata.priorClose}
-              visibleLimits={visibleLimits}
-              onToggleLimit={handleToggleLimit}
-            />
+            <>
+              <div className="view-mode-toggle">
+                <button
+                  className={`view-toggle-btn ${viewMode === "historical" ? "active" : ""}`}
+                  onClick={() => setViewMode("historical")}
+                >
+                  Historical Frequency
+                </button>
+                <button
+                  className={`view-toggle-btn ${viewMode === "probability" ? "active" : ""}`}
+                  onClick={() => setViewMode("probability")}
+                >
+                  Probability Limits
+                </button>
+              </div>
+
+              {viewMode === "historical" ? (
+                <LimitsTable
+                  expirations={symbolData.expirations}
+                  selectedDates={selectedDates}
+                  priorClose={symbolData.metadata.priorClose}
+                  visibleLimits={visibleLimits}
+                  onToggleLimit={handleToggleLimit}
+                />
+              ) : (
+                <PercentileLimitsTable
+                  expirations={symbolData.expirations}
+                  selectedDates={selectedDates}
+                  priorClose={symbolData.metadata.priorClose}
+                />
+              )}
+            </>
           )}
         </section>
       </main>

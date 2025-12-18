@@ -1,0 +1,274 @@
+/* Probability Limits - Vertical Card Layout */
+
+.prob-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.prob-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  gap: 1rem;
+  color: var(--text-muted);
+}
+
+.prob-empty-icon {
+  opacity: 0.4;
+}
+
+.prob-empty p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Reference Price Banner */
+.prob-reference {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(99, 102, 241, 0.03) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 8px;
+}
+
+.prob-reference-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.prob-reference-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: "SF Mono", "Monaco", "Consolas", monospace;
+  color: var(--text-primary);
+}
+
+/* Card Grid */
+.prob-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+/* Individual Card */
+.prob-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.prob-card:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Card Header */
+.prob-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: var(--bg-muted);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.prob-card-date {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.prob-weekday {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.prob-date {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.prob-card-dte {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.125rem;
+}
+
+.prob-dte-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent-color);
+  font-family: "SF Mono", "Monaco", "Consolas", monospace;
+}
+
+.prob-dte-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+/* Median Section */
+.prob-median {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.06) 0%, transparent 100%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.prob-median-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  min-width: 50px;
+}
+
+.prob-median-value {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "SF Mono", "Monaco", "Consolas", monospace;
+  color: var(--accent-color);
+}
+
+.prob-median-pct {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: "SF Mono", "Monaco", "Consolas", monospace;
+}
+
+/* Table Section */
+.prob-table {
+  padding: 0.5rem 0;
+}
+
+.prob-table-header {
+  display: grid;
+  grid-template-columns: 60px 1fr 1fr;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.prob-col-put {
+  text-align: right;
+  color: var(--put-color);
+}
+
+.prob-col-call {
+  text-align: right;
+  color: var(--call-color);
+}
+
+/* Table Rows */
+.prob-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 1fr;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  transition: background 0.15s;
+}
+
+.prob-row:hover {
+  background: var(--bg-hover);
+}
+
+.prob-row:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.prob-level {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+}
+
+.prob-value {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.125rem;
+}
+
+.prob-price {
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: "SF Mono", "Monaco", "Consolas", monospace;
+}
+
+.prob-pct {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-family: "SF Mono", "Monaco", "Consolas", monospace;
+}
+
+.prob-put .prob-price {
+  color: var(--put-color);
+}
+
+.prob-call .prob-price {
+  color: var(--call-color);
+}
+
+/* Legend */
+.prob-legend {
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.prob-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.prob-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.prob-legend-put {
+  background: var(--put-color);
+}
+
+.prob-legend-call {
+  background: var(--call-color);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .prob-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prob-legend {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
