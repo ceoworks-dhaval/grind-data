@@ -3,6 +3,7 @@ import { SymbolSelector } from "./components/SymbolSelector";
 import { DateRangePicker } from "./components/DateRangePicker";
 import { LimitsTable } from "./components/LimitsTable";
 import { PercentileLimitsTable } from "./components/PercentileLimitsTable";
+import { TermStructure } from "./components/TermStructure/TermStructure";
 import { FileUpload } from "./components/FileUpload";
 import { parseExcelFile } from "./utils/excelParser";
 import type { ScreenerData, SymbolInfo, LimitType } from "./types";
@@ -22,7 +23,7 @@ function App() {
     "neverLost",
     "onePercent",
   ]);
-  const [viewMode, setViewMode] = useState<"historical" | "probability">("historical");
+  const [viewMode, setViewMode] = useState<"historical" | "probability" | "term-structure">("historical");
 
   const handleFileLoaded = async (file: File) => {
     setIsLoading(true);
@@ -136,17 +137,23 @@ function App() {
                   className={`view-toggle-btn ${viewMode === "historical" ? "active" : ""}`}
                   onClick={() => setViewMode("historical")}
                 >
-                  Historical Frequency
+                  Historical
                 </button>
                 <button
                   className={`view-toggle-btn ${viewMode === "probability" ? "active" : ""}`}
                   onClick={() => setViewMode("probability")}
                 >
-                  Probability Limits
+                  Probability
+                </button>
+                <button
+                  className={`view-toggle-btn ${viewMode === "term-structure" ? "active" : ""}`}
+                  onClick={() => setViewMode("term-structure")}
+                >
+                  Term Structure
                 </button>
               </div>
 
-              {viewMode === "historical" ? (
+              {viewMode === "historical" && (
                 <LimitsTable
                   expirations={symbolData.expirations}
                   selectedDates={selectedDates}
@@ -154,10 +161,17 @@ function App() {
                   visibleLimits={visibleLimits}
                   onToggleLimit={handleToggleLimit}
                 />
-              ) : (
+              )}
+              {viewMode === "probability" && (
                 <PercentileLimitsTable
                   expirations={symbolData.expirations}
                   selectedDates={selectedDates}
+                  priorClose={symbolData.metadata.priorClose}
+                />
+              )}
+              {viewMode === "term-structure" && (
+                <TermStructure
+                  expirations={symbolData.expirations}
                   priorClose={symbolData.metadata.priorClose}
                 />
               )}
